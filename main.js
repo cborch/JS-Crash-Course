@@ -72,3 +72,118 @@ fruits.pop()
 // Get index of an element
 console.log(fruits.indexOf('oranges'))
 
+// Object literals
+const person = {
+    firstName: 'Carter',
+    lastName: 'Borchetta',
+    age: 22,
+    hobbies: ['coding', 'snowbaording', 'pc building' ],
+    // Can even put an object in an object
+    address: {
+        street: 'fake street',
+        city: 'fake ciity',
+        state: 'fake state'
+    }
+}
+console.log(person)
+console.log(person.firstName, person.address)
+console.log(person.hobbies[1])
+
+// Can pull things out with **Deconstruction**
+const { firstName,lastName } = person
+// This seems to pull the object's properties out of the the
+console.log(firstName)
+
+// Can add properties whenever
+person.email = 'fake@email.com'
+console.log(person)
+
+// Arrays of Objects
+const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isComplete: true
+    },
+    {
+        id: 2,
+        text: 'Take drugs',
+        isComplete: false
+    },
+    {
+        id: 3,
+        text: 'Make dinner',
+        isComplete: false
+    }
+]
+
+console.log(todos)
+console.log(todos[1].text)
+
+// We can easily convert this to JSON because the format is basically the same
+// except for the use of "" around keys and text
+const todoJSON = JSON.stringify(todos)
+console.log(todoJSON)
+
+// For Loops
+for (let i = 0; i < 10; i++) {
+    console.log(i)
+}
+
+// While Loops
+let i = 0
+
+while (i <10) {
+    console.log(i)
+    i++
+}
+
+// Loop through array
+for (let i = 0; i < todos.length; i++) {
+    console.log(todos[i])
+}
+
+// Fancier way = without looking at indices
+for (let todo of todos) {
+    console.log(todo.text)
+}
+
+
+// High Order Array Methods
+// These methods take in functions that they run on the array
+
+// forEach
+todos.forEach(function(todo) {
+    console.log(todo.text)
+})
+
+// Returns an array that is the result of the original array with a func done to it
+const todoTextOonly = todos.map(function(todo) {
+    return todo.text
+})
+console.log(todoTextOonly)
+
+
+// Returns an array with only the elements that met the condition
+const todoCompletedOnly = todos.filter(function(todo) {
+    return todo.isComplete === true
+})
+console.log(todoCompletedOnly)
+// Can also **chain** these high order array methods
+
+
+// Conditionals
+
+const d = '10'
+
+if (d == 10) {
+    console.log(d)
+}
+// This prints becuase == doesn't care about data type. Use === to match datatype
+
+//This doesn't work because we're requiring a match on datatype 
+const e = '10'
+
+if (e === 10) {
+    console.log(e)
+}
